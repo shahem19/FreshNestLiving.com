@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - FreshNest Living</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="hero-section small">
+        <div class="hero-content">
+            <h1>Explore Our Products</h1>
+            <p>Eco-Friendly, Smart, and Luxury Home Cleaning Solutions</p>
+        </div>
+    </header>
+
+    <!-- Product Filters -->
+    <section class="filters-section">
+        <h2>Filter by</h2>
+        <form id="filter-form">
+            <div class="filters">
+                <label for="category">Category</label>
+                <select id="category" name="category">
+                    <option value="all">All</option>
+                    <option value="eco-friendly">Eco-Friendly Cleaning</option>
+                    <option value="smart-home">Smart Home Gadgets</option>
+                    <option value="organic">Natural & Organic</option>
+                    <option value="luxury">Luxury Home Care</option>
+                </select>
+            </div>
+            <div class="filters">
+                <label for="price">Price Range</label>
+                <select id="price" name="price">
+                    <option value="all">All</option>
+                    <option value="low">Under $50</option>
+                    <option value="mid">$50 - $200</option>
+                    <option value="high">Over $200</option>
+                </select>
+            </div>
+            <div class="filters">
+                <label for="sort">Sort By</label>
+                <select id="sort" name="sort">
+                    <option value="popularity">Popularity</option>
+                    <option value="price-asc">Price: Low to High</option>
+                    <option value="price-desc">Price: High to Low</option>
+                    <option value="rating">Top Rated</option>
+                </select>
+            </div>
+        </form>
+    </section>
+
+    <!-- Products Listing -->
+    <section class="product-listing">
+        <div class="product-grid">
+            <div class="product-item">
+                <img src="assets/images/product1.jpg" alt="Eco-Friendly Cleaning Spray">
+                <h3>Eco-Friendly Cleaning Spray</h3>
+                <p>$19.99</p>
+                <a href="product-details.html" class="view-details">View Details</a>
+            </div>
+            <div class="product-item">
+                <img src="assets/images/product2.jpg" alt="Smart Vacuum Cleaner">
+                <h3>Smart Vacuum Cleaner</h3>
+                <p>$249.99</p>
+                <a href="product-details.html" class="view-details">View Details</a>
+            </div>
+            <div class="product-item">
+                <img src="assets/images/product3.jpg" alt="Organic Floor Cleaner">
+                <h3>Organic Floor Cleaner</h3>
+                <p>$29.99</p>
+                <a href="product-details.html" class="view-details">View Details</a>
+            </div>
+            <div class="product-item">
+                <img src="assets/images/product4.jpg" alt="Luxury Cleaning Set">
+                <h3>Luxury Cleaning Set</h3>
+                <p>$99.99</p>
+                <a href="product-details.html" class="view-details">View Details</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 FreshNest Living. All Rights Reserved.</p>
+        <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
