@@ -9,6 +9,20 @@ const products = [
     { name: 'Luxury Cleaning Set', price: 99.99, category: 'luxury' }
 ];
 
+// Load cart from localStorage if available
+function loadCart() {
+    const storedCart = localStorage.getItem('cart');
+    if (storedCart) {
+        cart = JSON.parse(storedCart);
+        updateCartUI();
+    }
+}
+
+// Save cart to localStorage
+function saveCart() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
 // Function to display products dynamically
 function displayProducts(filteredProducts) {
     const productGrid = document.querySelector('.product-grid');
@@ -55,8 +69,6 @@ document.getElementById('filter-form').addEventListener('change', function() {
         filteredProducts.sort((a, b) => a.price - b.price);
     } else if (sort === 'price-desc') {
         filteredProducts.sort((a, b) => b.price - a.price);
-    } else if (sort === 'popularity') {
-        // Implement a popularity metric if needed, default to showing as-is
     }
 
     // Display filtered and sorted products
@@ -75,7 +87,8 @@ function addToCart(product) {
         // Add new product to the cart
         cart.push(product);
     }
-    
+
+    saveCart(); // Save cart to localStorage
     updateCartUI();
     alert(`${product.name} has been added to your cart!`);
 }
@@ -120,13 +133,15 @@ if (document.getElementById('add-to-cart')) {
     });
 }
 
+// Load cart on page load
+document.addEventListener('DOMContentLoaded', loadCart);
+
 // Cart page: Adding event listener to "Proceed to Checkout" button
 if (document.getElementById('checkout-button')) {
     document.getElementById('checkout-button').addEventListener('click', function() {
         if (cart.length > 0) {
             alert('Proceeding to checkout...');
-            // Redirect to checkout.html or integrate payment gateway logic here
-            window.location.href = 'checkout.html';
+            window.location.href = 'checkout.html'; // Redirect to checkout page
         } else {
             alert('Your cart is empty!');
         }
@@ -144,11 +159,11 @@ if (document.getElementById('checkout-form')) {
         const shippingAddress = document.getElementById('address').value;
         const cardDetails = document.getElementById('card').value;
 
-        // Simulating an order placement (You can integrate payment gateway here)
         alert(`Thank you for your purchase, ${customerName}! Your order will be shipped to ${shippingAddress}.`);
 
         // Clear the cart after successful checkout
         cart = [];
+        saveCart(); // Clear cart in localStorage
         updateCartUI();
         window.location.href = 'index.html'; // Redirect to home page after checkout
     });
